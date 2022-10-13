@@ -1,0 +1,40 @@
+Source: netkit-telnet
+Section: net
+Priority: standard
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Standards-Version: 3.9.8
+Build-Depends: debhelper (>= 10~), libncurses-dev, cmake
+
+Package: telnet
+Architecture: any
+Depends: netbase, ${shlibs:Depends}, ${misc:Depends}
+Replaces: netstd
+Provides: telnet-client
+Description: basic telnet client
+ The telnet command is used for interactive communication with another host
+ using the TELNET protocol.
+ .
+ For the purpose of remote login, the present client executable should be
+ depreciated in favour of an ssh-client, or in some cases with variants like
+ telnet-ssl or Kerberized TELNET clients.  The most important reason is that
+ this implementation exchanges user name and password in clear text.
+ .
+ On the other hand, the present program does satisfy common use cases of
+ network diagnostics, like protocol testing of SMTP services, so it can
+ become handy enough.
+
+Package: telnetd
+Architecture: any
+Priority: optional
+Depends: adduser, openbsd-inetd | inet-superserver, passwd, ${shlibs:Depends}, ${misc:Depends}
+Replaces: netstd
+Provides: telnet-server
+Description: basic telnet server
+ The in.telnetd program is a server which supports the DARPA telnet interactive
+ communication protocol.
+ .
+ This legacy server should in general be abandoned in favour of a contemporary
+ ssh-server, as this implementation only is able to process password and user
+ name in clear text.  Other variants, like telnetd-ssl and a selection of
+ Kerberized TELNET servers, are able to improve on this by providing secure
+ forms of authentication and encryption.

@@ -1,0 +1,61 @@
+Description: Debian-specific changes to the cmake build system
+Author: Christoph Biedl <debian.axhn@manchmal.in-ulm.de>
+Forwarded: not-needed
+Last-Update: 2019-02-24
+
+--- a/telnet/CMakeLists.txt
++++ b/telnet/CMakeLists.txt
+@@ -6,7 +6,7 @@
+ ")
+ 
+ add_executable(
+-    telnet
++    telnet.netkit
+     commands.cc
+     environ.cc
+     genget.cc
+@@ -21,11 +21,12 @@
+     utilities.cc
+ )
+ install(
+-    TARGETS telnet
++    TARGETS telnet.netkit
+     DESTINATION ${BIN_DIR}
+ )
+ 
+ install(
+     FILES telnet.1
+     DESTINATION ${MAN_DIR}/man1/
++    RENAME telnet.netkit.1
+ )
+--- a/telnetd/CMakeLists.txt
++++ b/telnetd/CMakeLists.txt
+@@ -36,8 +36,6 @@
+     RENAME in.telnetd.8
+ )
+ install(
+-    CODE "execute_process( \
+-        COMMAND ${CMAKE_COMMAND} -E create_symlink \
+-        telnetd.8 \$ENV{DESTDIR}${MAN_DIR}/man8/in.telnetd.8 \
+-    )"
++    FILES issue.net.5
++    DESTINATION ${MAN_DIR}/man5/
+ )
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -10,6 +10,7 @@
+ set(
+     CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
+     -D_GNU_SOURCE \
++    -Ddebian \
+     -DACCEPT_USERVAR \
+     -Wall \
+     -Wno-trigraphs \
+@@ -17,6 +18,7 @@
+ set(
+     CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
+     -D_GNU_SOURCE \
++    -Ddebian \
+     -DACCEPT_USERVAR \
+     -Wall \
+     -Wno-trigraphs \
