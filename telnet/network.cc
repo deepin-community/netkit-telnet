@@ -48,7 +48,7 @@ char net_rcsid[] =
 #include "externs.h"
 #include "proto.h"
 #include "netlink.h"
-
+#include <cstdlib>
 ringbuf netoring;
 ringbuf netiring;
 

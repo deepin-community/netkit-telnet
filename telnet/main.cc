@@ -51,6 +51,7 @@ char main_rcsid[] =
 #include "externs.h"
 #include "defines.h"
 #include "proto.h"
+#include <cstdlib>
 
 /*
  * Initialize variables.

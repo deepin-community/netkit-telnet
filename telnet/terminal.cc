@@ -45,6 +45,8 @@ char terminal_rcsid[] =
 #include <signal.h>
 #include <errno.h>
 #include <stdio.h>
+#include <cstring>
+#include <cstdlib>
 
 #include "ring.h"
 #include "defines.h"

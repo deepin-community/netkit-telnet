@@ -57,7 +57,7 @@ fi
 
 BINDIR="$EXECPREFIX/bin"
 SBINDIR="$EXECPREFIX/sbin"
-MANDIR="$PREFIX/man"
+MANDIR="$PREFIX/share/man"
 
 echo "Directories: $BINDIR $SBINDIR $MANDIR "
 
@@ -122,7 +122,7 @@ EOF
 
 if [ x"$CXX" = x ]; then
     echo -n 'Looking for a C++ compiler... '
-    for TRY in egcs gcc g++ CC c++ cc; do
+    for TRY in egcs g++ gcc CC c++ cc; do
        (
            $TRY __conftest.cc -o __conftest || exit 1;
            ./__conftest || exit 1;

@@ -11,6 +11,7 @@
 #include "netlink.h"
 #include "proto.h"
 #include "ring.h"
+#include <cstring>
 
 /* In Linux, this is an enum */
 #if defined(__linux__) || defined(IPPROTO_IP)

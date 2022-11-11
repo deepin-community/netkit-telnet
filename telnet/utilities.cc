@@ -47,6 +47,8 @@ char util_rcsid[] =
 #include <sys/socket.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <cstdlib>
+#include <cstring>
 
 #include "ring.h"
 #include "defines.h"
