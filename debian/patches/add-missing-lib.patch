@@ -1,0 +1,19 @@
+Description: Link with the missing ncurses library
+Author: Xiangwei Gui <yuemeng.gui@gmail.com>
+--- a/telnet/CMakeLists.txt
++++ b/telnet/CMakeLists.txt
+@@ -1,4 +1,5 @@
+-
++find_package(Curses REQUIRED)
++include_directories(${CURSES_INCLUDE_DIR})
+ set(
+     CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
+     -DUSE_TERMIO \
+@@ -20,6 +21,7 @@
+     tn3270.cc
+     utilities.cc
+ )
++target_link_libraries(telnet.netkit ${CURSES_LIBRARIES})
+ install(
+     TARGETS telnet.netkit
+     DESTINATION ${BIN_DIR}

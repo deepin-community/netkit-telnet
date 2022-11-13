@@ -15,3 +15,4 @@
 use-cmake-as-buildsystem.patch
 use-cmake-as-buildsystem-debian-extras.patch
 telnet-netwritebuf-fix.diff
+add-missing-lib.patch
