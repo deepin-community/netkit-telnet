@@ -1,3 +1,9 @@
+netkit-telnet (0.17.1-deepin1) unstable; urgency=medium
+
+  * Fix build on RISC-V
+
+ -- Gui-Yue <yuemeng.gui@gmail.com>  Mon, 21 Nov 2022 09:14:20 +0000
+
 netkit-telnet (0.17-42) unstable; urgency=medium
 
   * QA upload.
